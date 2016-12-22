@@ -82,6 +82,9 @@ configureAfter(Angel app) async {
   // Pass AngelHttpExceptions through handler as well
   await app.configure(errors);
 
+  // How about deflate? ;)
+  app.responseFinalizers.add(compress('deflate', ZLIB));
+
   // Compress via GZIP
   app.responseFinalizers.add(gzip());
 }

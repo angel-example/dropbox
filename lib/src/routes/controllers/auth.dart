@@ -12,7 +12,7 @@ const scopes = const [
 
 @Expose('/api/auth')
 class AuthController extends Controller {
-  final AngelAuth auth = new AngelAuth();
+  final AngelAuth auth = new AngelAuth(allowCookie: false);
 
   serializer(Person person) async => person.id;
 
@@ -42,6 +42,8 @@ class AuthController extends Controller {
   login(req, res) => auth.authenticate('google')(req, res);
 
   @Expose('/google/callback')
-  callback(req, res) => auth.authenticate(
-      'google', new AngelAuthOptions(successRedirect: '/'))(req, res);
+  callback(req, res) => auth.authenticate('google',
+          new AngelAuthOptions(callback: (req, res, jwt) async {
+        return res.redirect('/?token=$jwt');
+      }))(req, res);
 }
