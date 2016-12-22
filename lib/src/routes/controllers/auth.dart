@@ -12,7 +12,7 @@ const scopes = const [
 
 @Expose('/api/auth')
 class AuthController extends Controller {
-  final AngelAuth auth = new AngelAuth(allowCookie: false);
+  final AngelAuth auth = new AngelAuth(jwtKey: 'DROPBOX_EXAMPLE_SECRET', allowCookie: false);
 
   serializer(Person person) async => person.id;
 
@@ -35,7 +35,7 @@ class AuthController extends Controller {
       ..strategies.add(new GoogleStrategy(config: app.google, scopes: scopes));
 
     await super.call(app);
-    // await app.configure(auth);
+    await app.configure(auth);
   }
 
   @Expose('/google')
