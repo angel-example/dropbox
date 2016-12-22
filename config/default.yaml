@@ -9,7 +9,7 @@ db:
     username: username
     password: password
 host: 127.0.0.1
-mongo_db: mongodb://localhost:27017/angel
+mongo_db: mongodb://localhost:27017/dropbox
 port: 3000
 google:
   id: 879916772461-i7htk1jo48ubv18dbe9pvce4m6lbka9n.apps.googleusercontent.com
