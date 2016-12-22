@@ -1,0 +1,6 @@
+<component name="ProjectRunConfigurationManager">
+      <configuration default="false" name="UploadedFile Tests" type="DartTestRunConfigurationType" factoryName="Dart Test" singleton="true">
+        <option name="filePath" value="$PROJECT_DIR$/test/services/uploaded_file_test.dart" />
+        <method />
+      </configuration>
+    </component>
